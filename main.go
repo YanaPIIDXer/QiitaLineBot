@@ -2,8 +2,11 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/YanaPIIDXer/QiitaLineBot/src/domain/post"
 )
 
 func main() {
-	fmt.Println("Hello, World!")
+	var post *post.Post = post.NewPost("MyPost")
+	fmt.Println(post.Title)
 }
