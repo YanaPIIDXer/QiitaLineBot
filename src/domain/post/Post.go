@@ -11,6 +11,7 @@ func NewPost(title *PostTitle) *Post {
 	
 	var post *Post = new(Post)
 	post.title = title
+	
 	return post
 }
 
