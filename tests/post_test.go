@@ -26,7 +26,7 @@ func TestPostTitle(t *testing.T){
 
 	// エラーチェック
 	postTitle = Post.NewPostTitle("")
-	if postTitle == nil { t.Error("PostTitle Construct Validate Failed...") }
+	if postTitle != nil { t.Error("PostTitle Construct Validate Failed...") }
 
 	// 等価チェック
 	postTitle = Post.NewPostTitle("test")
