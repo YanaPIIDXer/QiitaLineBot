@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/YanaPIIDXer/QiitaLineBot/src/domain/Post"
+	"github.com/YanaPIIDXer/QiitaLineBot/src/domain/post"
 )
 
 func main() {
-	var post *Post.Post = Post.NewPost("MyPost")
-	fmt.Println(post.Title())
+	var post *Post.Post = Post.NewPost(Post.NewPostTitle("MyPost"))
+	fmt.Println(post.Title().Value())
 }
