@@ -19,7 +19,7 @@ func TestPost(t *testing.T) {
 }
 
 // PostTitle
-func TestPostTitle(t *testing.T){
+func TestPostTitle(t *testing.T) {
 	// インスタンス化
 	var postTitle = Post.NewPostTitle("test")
 	if postTitle == nil { t.Error("PostTitle Instantiate Failed...") }
