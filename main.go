@@ -8,5 +8,5 @@ import (
 
 func main() {
 	var post *post.Post = post.NewPost("MyPost")
-	fmt.Println(post.Title)
+	fmt.Println(post.Title())
 }
