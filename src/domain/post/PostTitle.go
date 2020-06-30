@@ -19,3 +19,8 @@ func NewPostTitle(value string) *PostTitle {
 func (this *PostTitle) Value() string {
 	return this.value;
 }
+
+// 等価判定
+func (this *PostTitle) Equal(other *PostTitle) bool {
+	return (this.value == other.value)
+}

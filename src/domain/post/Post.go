@@ -2,7 +2,7 @@ package Post
 
 // 投稿データ
 type Post struct {
-	title *PostTitle
+	title *PostTitle		// タイトル
 }
 
 // コンストラクタ
