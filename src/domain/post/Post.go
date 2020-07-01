@@ -14,8 +14,3 @@ func NewPost(title *PostTitle) *Post {
 	
 	return post
 }
-
-// タイトル取得
-func (this *Post) Title() *PostTitle {
-	return this.title
-}
