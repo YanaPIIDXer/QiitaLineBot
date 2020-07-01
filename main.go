@@ -1,12 +1,16 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/YanaPIIDXer/QiitaLineBot/src/domain/post"
+	"net/http"
+    "github.com/gin-gonic/gin"
 )
 
 func main() {
-	var post *Post.Post = Post.NewPost(Post.NewPostTitle("MyPost"))
-	fmt.Println(post.Title().Value())
+    router := gin.Default()
+
+    router.GET("/", func(ctx *gin.Context) {
+		ctx.String(http.StatusOK, "HTTP SERVER")
+    })
+
+    router.Run(":3000")
 }

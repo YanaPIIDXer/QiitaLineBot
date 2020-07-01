@@ -5,3 +5,5 @@ services:
     tty: true
     volumes:
       - .:/go/src/github.com/YanaPIIDXer/QiitaLineBot
+    ports:
+      - "3000:3000"
