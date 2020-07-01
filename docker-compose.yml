@@ -7,3 +7,5 @@ services:
       - .:/go/src/github.com/YanaPIIDXer/QiitaLineBot
     ports:
       - "3000:3000"
+    command: realize start --name='server' --run
+    restart: always
