@@ -17,4 +17,4 @@ ADD . /go/src/github.com/YanaPIIDXer/QiitaLineBot
 # ビルド
 RUN go build -o server.out .
 
-ENTRYPOINT ["./server.out"]
+ENTRYPOINT ["/server.out"]
