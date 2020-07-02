@@ -7,5 +7,6 @@ WORKDIR /go/src/github.com/YanaPIIDXer/QiitaLineBot
 RUN go get -v github.com/gin-gonic/gin
 RUN go get -v -u github.com/oxequa/realize
 RUN go get -v github.com/line/line-bot-sdk-go/linebot
+RUN go get -v github.com/joho/godotenv
 ADD . /go/src/github.com/YanaPIIDXer/QiitaLineBot
 RUN go build -o server.out .
