@@ -14,6 +14,8 @@ RUN go get -v github.com/joho/godotenv
 
 ADD . /go/src/github.com/YanaPIIDXer/QiitaLineBot
 
+ENV PORT=${PORT}
+
 # ビルド
 RUN go build -o server.out .
 
