@@ -1,0 +1,12 @@
+version: '3'
+build:
+  docker:
+    web: Dockerfile
+    worker:
+      dockerfile: Dockerfile
+      target: builder
+  release:
+    image: worker
+run:
+  web: ./server.out
+  
