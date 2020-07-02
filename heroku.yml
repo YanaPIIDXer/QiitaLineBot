@@ -4,8 +4,8 @@ build:
     worker:
       dockerfile: Dockerfile
       target: builder
-  release:
-    image: worker
-  run:
-    web: ./server.out
+release:
+  image: worker
+run:
+  web: ./server.out
   
