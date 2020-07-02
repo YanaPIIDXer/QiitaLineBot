@@ -13,13 +13,7 @@ func main() {
 	// この辺の処理、mainに直接書くのもなぁ・・・
 	// @TODO:後程クラス化。
 	router := gin.Default()
-	{
-		err := godotenv.Load(".env")
-		if err != nil {
-			fmt.Println(".env Load Failed.")
-			return
-		}	
-	}
+	godotenv.Load(".env")
 	
 	var channelSecret = os.Getenv("CHANNEL_SECRET")
 	var channelToken = os.Getenv("CHANNEL_TOKEN")
