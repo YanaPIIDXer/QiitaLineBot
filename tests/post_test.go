@@ -2,38 +2,38 @@ package test
 
 import (
 	"testing"
-	"github.com/YanaPIIDXer/QiitaLineBot/src/domain/post"
+	"github.com/YanaPIIDXer/QiitaLineBot/src/domain/article"
 )
 
-// Post
-func TestPost(t *testing.T) {
+// Article
+func TestArticle(t *testing.T) {
 	// インスタンス化
-	var post = Post.NewPost(Post.NewPostTitle("Test"))
-	if post == nil { t.Error("Post Instantiate Failed...") }
+	var article = Article.NewArticle(Article.NewArticleTitle("Test"))
+	if article == nil { t.Error("Article Instantiate Failed...") }
 
 	// エラーチェック
-	post = Post.NewPost(nil)
-	if post != nil { t.Error("Post Construct Validate Failed...") }
+	article = Article.NewArticle(nil)
+	if article != nil { t.Error("Article Construct Validate Failed...") }
 
-	t.Log("Post Test Success.")
+	t.Log("Article Test Success.")
 }
 
-// PostTitle
-func TestPostTitle(t *testing.T) {
+// ArticleTitle
+func TestArticleTitle(t *testing.T) {
 	// インスタンス化
-	var postTitle = Post.NewPostTitle("test")
-	if postTitle == nil { t.Error("PostTitle Instantiate Failed...") }
+	var articleTitle = Article.NewArticleTitle("test")
+	if articleTitle == nil { t.Error("ArticleTitle Instantiate Failed...") }
 
 	// エラーチェック
-	postTitle = Post.NewPostTitle("")
-	if postTitle != nil { t.Error("PostTitle Construct Validate Failed...") }
+	articleTitle = Article.NewArticleTitle("")
+	if articleTitle != nil { t.Error("ArticleTitle Construct Validate Failed...") }
 
 	// 等価チェック
-	postTitle = Post.NewPostTitle("test")
-	var sameTitle = Post.NewPostTitle("test")
-	if !postTitle.Equal(sameTitle) { t.Error("PostTitle Equal Test Failed...") }
-	var diffTitle = Post.NewPostTitle("test2")
-	if postTitle.Equal(diffTitle) { t.Error("PostTitle Not Equal Test Failed...") }
+	articleTitle = Article.NewArticleTitle("test")
+	var sameTitle = Article.NewArticleTitle("test")
+	if !articleTitle.Equal(sameTitle) { t.Error("ArticleTitle Equal Test Failed...") }
+	var diffTitle = Article.NewArticleTitle("test2")
+	if articleTitle.Equal(diffTitle) { t.Error("ArticleTitle Not Equal Test Failed...") }
 
-	t.Log("PostTitle Test Success")
+	t.Log("ArticleTitle Test Success")
 }
