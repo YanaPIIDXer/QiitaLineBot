@@ -17,6 +17,6 @@ ADD . /go/src/github.com/YanaPIIDXer/QiitaLineBot
 ENV PORT=${PORT}
 
 # ビルド
-RUN go build -o server.out .
+RUN go build -o bin/server.out .
 
-ENTRYPOINT ["/server.out"]
+ENTRYPOINT ["bin/server.out"]
