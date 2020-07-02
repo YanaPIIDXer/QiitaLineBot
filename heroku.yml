@@ -6,6 +6,6 @@ build:
       target: builder
   release:
     image: worker
-run:
-  web: ./server.out
+  run:
+    web: ./server.out
   
