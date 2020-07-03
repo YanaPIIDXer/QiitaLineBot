@@ -27,6 +27,7 @@ func main() {
 
 	// ローカルからの接続
     router.GET("/", func(ctx *gin.Context) {
+		fmt.Println("Access to \"/\"")
 		ctx.String(http.StatusOK, "LOCAL SERVER")
 	})
 	
