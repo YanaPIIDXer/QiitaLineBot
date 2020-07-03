@@ -8,10 +8,10 @@ schema:
     commands:
       install:
         status: true
-        method: go build -o server.out .
+        method: go build -o bin/server.out .
       run:
         status: true
-        method: ./server.out
+        method: bin/server.out
     watcher:
       extensions:
         - go
