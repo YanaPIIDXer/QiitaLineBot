@@ -7,6 +7,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/line/line-bot-sdk-go/linebot"
+
+//	"github.com/YanaPIIDXer/QiitaLineBot/src/infrastructure/connection"
 )
 
 func main() {
