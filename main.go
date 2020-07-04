@@ -44,7 +44,13 @@ func main() {
 		for _, event := range events {
 			switch message := event.Message.(type) {
 				case *linebot.TextMessage:
-					_ = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text))
+					// ↓ReplyMessageメソッドが返すのはエラーオブジェクトではなくReplyMessageCallと言うオブジェクトで、
+					//  ここでメッセージが送信されるわけではない。
+					//  そいつのDoメソッドを叩くことで初めてメッセージが送信される。
+					_, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do()
+					if err != nil {
+						fmt.Println("ReplyMessage Failed.")
+					}
 					break
 			}
 		}
