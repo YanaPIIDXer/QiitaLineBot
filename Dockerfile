@@ -4,6 +4,7 @@ FROM golang:latest as builder
 RUN mkdir /go/src/github.com/
 RUN mkdir /go/src/github.com/YanaPIIDXer
 RUN mkdir /go/src/github.com/YanaPIIDXer/QiitaLineBot
+RUN mkdir /go/src/github.com/YanaPIIDXer/QiitaLineBot/bin
 WORKDIR /go/src/github.com/YanaPIIDXer/QiitaLineBot
 
 # 各種モジュールのインストール
@@ -19,4 +20,5 @@ ENV PORT=${PORT}
 # ビルド
 RUN go build -o bin/server.out .
 
-ENTRYPOINT ["bin/server.out"]
+#ENTRYPOINT ["bin/server.out"]
+CMD bin/server.out

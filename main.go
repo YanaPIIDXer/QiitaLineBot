@@ -10,10 +10,11 @@ import (
 )
 
 func main() {
+	godotenv.Load(".env")
+
 	// この辺の処理、mainに直接書くのもなぁ・・・
 	// @TODO:後程クラス化。
 	router := gin.Default()
-	godotenv.Load(".env")
 	
 	var channelSecret = os.Getenv("CHANNEL_SECRET")
 	var channelToken = os.Getenv("CHANNEL_TOKEN")
