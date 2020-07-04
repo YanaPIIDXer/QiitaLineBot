@@ -4,20 +4,8 @@ import (
 	"os"
 	"github.com/joho/godotenv"
 
-	"github.com/YanaPIIDXer/QiitaLineBot/src/domain/connection"
 	"github.com/YanaPIIDXer/QiitaLineBot/src/infrastructure/connection"
-	
-	"net/http"
-	"github.com/gin-gonic/gin"
-//	"github.com/line/line-bot-sdk-go/linebot"
 )
-
-type TestAccessEvent struct {}
-func (this *TestAccessEvent) GetInfo() (Connection.AccessMethod, string) { return Connection.GET, "/" }
-func (this *TestAccessEvent) OnAccess(gtx interface{}) {
-	context := gtx.(*gin.Context)
-	context.String(http.StatusOK, "Test Access Event Running...")
-}
 
 func main() {
 	godotenv.Load(".env")
@@ -28,7 +16,8 @@ func main() {
 	}
 
 	var connection = InfrastructureConnection.NewHTTPConnection()
-	connection.AddAccessEvent(new(TestAccessEvent))
+	connection.AddAccessEvent(InfrastructureConnection.NewLocalAccessEvent())
+	connection.AddAccessEvent(InfrastructureConnection.NewLINEAccessEvent())
 	connection.Service(port)
 	
 	/*
