@@ -1,4 +1,4 @@
-package Connection
+package InfrastructureConnection
 
 import (
 	"github.com/gin-gonic/gin"
@@ -33,5 +33,5 @@ func (this *HTTPConnection) AddAccessEvent(event Connection.AccessEventInterface
 
 // 実行
 func (this *HTTPConnection) Service(port string) {
-	router.Run(":" + port)
+	this.router.Run(":" + port)
 }

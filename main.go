@@ -1,19 +1,37 @@
 package main
 
 import (
-	"fmt"
 	"os"
+	"github.com/joho/godotenv"
+
+	"github.com/YanaPIIDXer/QiitaLineBot/src/domain/connection"
+	"github.com/YanaPIIDXer/QiitaLineBot/src/infrastructure/connection"
+	
 	"net/http"
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
-	"github.com/line/line-bot-sdk-go/linebot"
-
-//	"github.com/YanaPIIDXer/QiitaLineBot/src/infrastructure/connection"
+//	"github.com/line/line-bot-sdk-go/linebot"
 )
+
+type TestAccessEvent struct {}
+func (this *TestAccessEvent) GetInfo() (Connection.AccessMethod, string) { return Connection.GET, "/" }
+func (this *TestAccessEvent) OnAccess(gtx interface{}) {
+	context := gtx.(*gin.Context)
+	context.String(http.StatusOK, "Test Access Event Running...")
+}
 
 func main() {
 	godotenv.Load(".env")
 
+	var port = os.Getenv("PORT")		// heroku上で動かす場合は指定されたPortじゃないと死なますよ。
+	if port == "" {
+		port = "3000"
+	}
+
+	var connection = InfrastructureConnection.NewHTTPConnection()
+	connection.AddAccessEvent(new(TestAccessEvent))
+	connection.Service(port)
+	
+	/*
 	// この辺の処理、mainに直接書くのもなぁ・・・
 	// @TODO:後程クラス化。
 	router := gin.Default()
@@ -64,5 +82,6 @@ func main() {
 		port = "3000"
 	}
 	fmt.Println("Server Port:" + port)
-    router.Run(":" + port)
+	router.Run(":" + port)
+	*/
 }
